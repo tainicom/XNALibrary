@@ -17,6 +17,9 @@ Cross-platform XNA/MonoGame tool library.
  * tainicom.DataStructures.Collections.DictionaryList<TKey, TValue>
 
 DictionaryList for Windows Phone & Windows Store.
+
+ * System.Collections.Generic.Set<T>
+
  * System.Collections.Generic.SortedList<TKey, TValue>
 
 SortedList for Windows Phone & Windows Store.
