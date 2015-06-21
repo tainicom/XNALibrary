@@ -15,28 +15,34 @@ Cross-platform XNA/MonoGame tool library.
 ## \DataStructures\Collections\
 
  * tainicom.DataStructures.Collections.DictionaryList<TKey, TValue>
+
 DictionaryList for Windows Phone & Windows Store.
  * System.Collections.Generic.SortedList<TKey, TValue>
+
 SortedList for Windows Phone & Windows Store.
 
 
 ## \DataStructures\Graphs\
 
  * tainicom.DataStructures.Graphs.Graph<TNode>
+
 Graph library.
 
 
 ## \Storage\
 
  * tainicom.Storage.StorageFile 
+
 Wrapper of IsolatedStorageFile.
  * tainicom.Storage.StorageBinaryFile
- Wrapper of IsolatedStorageFile for binary files & Version support.
+
+Wrapper of IsolatedStorageFile for binary files & Version support.
 
 
 ## \Devices\
 
 * tainicom.Devices.Vibrator
+
 Vibrator class for mobile devices that use duty cicle to control power.
 Support Dumping & MasterPower.
 
