@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB291457-BE0F-4EEF-988C-0FB7F12DC64E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tainicom</RootNamespace>
+    <AssemblyName>tainicom</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10069.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10069.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\W10.MG</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\W10.MG</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DataStructures\Collections\DictionaryList.cs" />
+    <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
+    <Compile Include="DataStructures\Graphs\Algorithms\SortestPath.cs" />
+    <Compile Include="DataStructures\Graphs\Edge.cs" />
+    <Compile Include="DataStructures\Graphs\Graph.cs" />
+    <Compile Include="DataStructures\Graphs\Node.cs" />
+    <Compile Include="DataStructures\Graphs\NodeList.cs" />
+    <Compile Include="Devices\Vibrator.cs" />
+    <Compile Include="Helpers\Threading.cs" />
+    <Compile Include="Properties\AssemblyInfo.W10.cs" />
+    <Compile Include="Storage\IStoreable.cs" />
+    <Compile Include="Storage\ITombstoning.cs" />
+    <Compile Include="Storage\StorageBinaryFile.cs" />
+    <Compile Include="Storage\StorageFile.cs" />
+    <Compile Include="XNA\Cameras\Camera.cs" />
+    <Compile Include="XNA\Cameras\ICamera.cs" />
+    <Compile Include="XNA\Cameras\InterpolatedCamera.cs" />
+    <Compile Include="XNA\Cameras\MovingCamera.cs" />
+    <Compile Include="XNA\Cameras\OrthographicCamera.cs" />
+    <Compile Include="XNA\Cameras\PerspectiveCamera.cs" />
+    <Compile Include="XNA\Helpers\CommonHelper.cs" />
+    <Compile Include="XNA\Helpers\MarketplaceHelper.cs" />
+    <Compile Include="XNA\Helpers\NKStringBuilder.cs" />
+    <Compile Include="XNA\Helpers\TextureHelper.cs" />
+    <Compile Include="XNA\Maths\MathHelper2D.cs" />
+    <Compile Include="XNA\Maths\Phasor.cs" />
+    <Compile Include="XNA\Maths\Tau.cs" />
+    <Compile Include="XNA\PageManager\Enums\EnumPageAction.cs" />
+    <Compile Include="XNA\PageManager\Enums\EnumTransitionAction.cs" />
+    <Compile Include="XNA\PageManager\Enums\EnumTransitionState.cs" />
+    <Compile Include="XNA\PageManager\Enums\EnumTransitionSync.cs" />
+    <Compile Include="XNA\PageManager\Events\PageEventArgs.cs" />
+    <Compile Include="XNA\PageManager\Events\TransitionStateChangedEventArgs.cs" />
+    <Compile Include="XNA\PageManager\InputState.cs" />
+    <Compile Include="XNA\PageManager\IPage.cs" />
+    <Compile Include="XNA\PageManager\IPageFactory.cs" />
+    <Compile Include="XNA\PageManager\PageAction.cs" />
+    <Compile Include="XNA\PageManager\PageBase.cs" />
+    <Compile Include="XNA\PageManager\PageManager.ContentLoading.cs" />
+    <Compile Include="XNA\PageManager\PageManager.cs" />
+    <Compile Include="XNA\PageManager\PageManager.IDrawable.cs" />
+    <Compile Include="XNA\PageManager\PageManager.IPage.cs" />
+    <Compile Include="XNA\PageManager\ScreenInfo.cs" />
+    <Compile Include="XNA\PageManager\ScreenInfo.W10.cs" />
+    <Compile Include="XNA\PageManager\TransitionController.cs" />
+    <Compile Include="XNA\Performance\BarAlign.cs" />
+    <Compile Include="XNA\Performance\Counter.cs" />
+    <Compile Include="XNA\Performance\CounterMarker.cs" />
+    <Compile Include="XNA\Performance\FrameRateCounter.cs" />
+    <Compile Include="XNA\Performance\MySet.cs" />
+    <Compile Include="XNA\Performance\Performance.cs" />
+    <Compile Include="XNA\Performance\PerformanceDisplay.cs" />
+    <Compile Include="XNA\ScreenRotation\IRotationStrategy.cs" />
+    <Compile Include="XNA\ScreenRotation\RotationAngle.cs" />
+    <Compile Include="XNA\Tweens\Scheduler.cs" />
+    <Compile Include="XNA\Tweens\Timer.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPosition.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormal.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalColor.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalColorTexture.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalColorTextureTangentBinormal.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureTangentBinormal.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureWeightsIndices.cs" />
+    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Game\packages\MonoGame.Framework.Portable.3.2.99.1-Beta\lib\portable-net40+sl40+win+wp80\MonoGame.Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Game\packages\System.Numerics.Vectors.4.0.0\lib\win8\System.Numerics.Vectors.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Game\packages\System.Numerics.Vectors.4.0.0\lib\win8\System.Numerics.Vectors.WindowsRuntime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
