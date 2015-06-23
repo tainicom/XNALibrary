@@ -94,6 +94,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
+    <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
     <Compile Include="DataStructures\Collections\SortedList.cs" />
     <Compile Include="DataStructures\Graphs\Edge.cs" />
