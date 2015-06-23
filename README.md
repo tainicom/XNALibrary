@@ -30,7 +30,7 @@ SortedList for Windows Phone & Windows Store.
 ## \DataStructures\Graphs\
 
  * tainicom.DataStructures.Graphs.Graph<TNode>
- * 
+
 Graph library.
 
  * tainicom.DataStructures.Graphs.Algorithms.SortestPath<TNode>
