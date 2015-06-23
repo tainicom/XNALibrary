@@ -18,7 +18,9 @@ Cross-platform XNA/MonoGame tool library.
 
 DictionaryList for Windows Phone & Windows Store.
 
- * System.Collections.Generic.Set<T>
+ * tainicom.DataStructures.Collections.PriorityQueue<TPriority, TValue>
+ 
+ * tainicom.DataStructures.Collections.Set<TValue>
 
  * System.Collections.Generic.SortedList<TKey, TValue>
 
@@ -28,6 +30,8 @@ SortedList for Windows Phone & Windows Store.
 ## \DataStructures\Graphs\
 
  * tainicom.DataStructures.Graphs.Graph<TNode>
+
+ * tainicom.DataStructures.Graphs.Algorithms.SortestPath<TNode>
 
 Graph library.
 
