@@ -63,6 +63,7 @@
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
+    <Compile Include="DataStructures\Graphs\Algorithms\SortestPath.cs" />
     <Compile Include="DataStructures\Graphs\Edge.cs" />
     <Compile Include="DataStructures\Graphs\Graph.cs" />
     <Compile Include="DataStructures\Graphs\Node.cs" />
