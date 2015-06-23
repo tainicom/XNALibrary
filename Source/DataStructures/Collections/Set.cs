@@ -18,16 +18,16 @@ using System.Collections.Generic;
 
 namespace tainicom.DataStructures.Collections
 {
-    public class Set<T>:ICollection<T>
+    public class Set<TValue> : ICollection<TValue>
     {
-        private Dictionary<T, short> _dictionary;
+        private Dictionary<TValue, short> _dictionary;
 
         public Set()
         {
-            _dictionary = new Dictionary<T,short>();
+            _dictionary = new Dictionary<TValue,short>();
         }
 
-        public void Add(T item)
+        public void Add(TValue item)
         {
             _dictionary.Add(item,0);
         }
@@ -37,12 +37,12 @@ namespace tainicom.DataStructures.Collections
             _dictionary.Clear();
         }
 
-        public bool Contains(T item)
+        public bool Contains(TValue item)
         {
             return _dictionary.ContainsKey(item);
         }
 
-        public void CopyTo(T[] array, int arrayIndex)
+        public void CopyTo(TValue[] array, int arrayIndex)
         {
             _dictionary.Keys.CopyTo(array,arrayIndex);
         }
@@ -57,12 +57,12 @@ namespace tainicom.DataStructures.Collections
             get { return false; }
         }
 
-        public bool Remove(T item)
+        public bool Remove(TValue item)
         {
             return _dictionary.Remove(item);
         }
         
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<TValue> GetEnumerator()
         {
             return _dictionary.Keys.GetEnumerator();
         }     
