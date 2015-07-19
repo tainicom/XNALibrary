@@ -58,7 +58,6 @@
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
