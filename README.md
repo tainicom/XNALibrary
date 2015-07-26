@@ -53,6 +53,10 @@ Wrapper of IsolatedStorageFile for binary files & Version support.
 Vibrator class for mobile devices that use duty cicle to control power.
 Support Dumping & MasterPower.
 
+## \VertexTypes\
+
+Common Vertex types not defined by XNA.
+
 
 
 ## License
