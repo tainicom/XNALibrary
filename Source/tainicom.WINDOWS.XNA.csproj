@@ -73,6 +73,15 @@
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
     <Compile Include="Storage\StorageFile.cs" />
+    <Compile Include="VertexTypes\VertexPosition.cs" />
+    <Compile Include="VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColor.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndices.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

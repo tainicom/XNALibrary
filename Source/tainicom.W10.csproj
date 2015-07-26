@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.W10.cs" />
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
@@ -46,63 +47,19 @@
     <Compile Include="DataStructures\Graphs\Node.cs" />
     <Compile Include="DataStructures\Graphs\NodeList.cs" />
     <Compile Include="Devices\Vibrator.cs" />
-    <Compile Include="Helpers\Threading.cs" />
-    <Compile Include="Properties\AssemblyInfo.W10.cs" />
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
     <Compile Include="Storage\StorageFile.cs" />
-    <Compile Include="XNA\Cameras\Camera.cs" />
-    <Compile Include="XNA\Cameras\ICamera.cs" />
-    <Compile Include="XNA\Cameras\InterpolatedCamera.cs" />
-    <Compile Include="XNA\Cameras\MovingCamera.cs" />
-    <Compile Include="XNA\Cameras\OrthographicCamera.cs" />
-    <Compile Include="XNA\Cameras\PerspectiveCamera.cs" />
-    <Compile Include="XNA\Helpers\CommonHelper.cs" />
-    <Compile Include="XNA\Helpers\MarketplaceHelper.cs" />
-    <Compile Include="XNA\Helpers\NKStringBuilder.cs" />
-    <Compile Include="XNA\Helpers\TextureHelper.cs" />
-    <Compile Include="XNA\Maths\MathHelper2D.cs" />
-    <Compile Include="XNA\Maths\Phasor.cs" />
-    <Compile Include="XNA\Maths\Tau.cs" />
-    <Compile Include="XNA\PageManager\Enums\EnumPageAction.cs" />
-    <Compile Include="XNA\PageManager\Enums\EnumTransitionAction.cs" />
-    <Compile Include="XNA\PageManager\Enums\EnumTransitionState.cs" />
-    <Compile Include="XNA\PageManager\Enums\EnumTransitionSync.cs" />
-    <Compile Include="XNA\PageManager\Events\PageEventArgs.cs" />
-    <Compile Include="XNA\PageManager\Events\TransitionStateChangedEventArgs.cs" />
-    <Compile Include="XNA\PageManager\InputState.cs" />
-    <Compile Include="XNA\PageManager\IPage.cs" />
-    <Compile Include="XNA\PageManager\IPageFactory.cs" />
-    <Compile Include="XNA\PageManager\PageAction.cs" />
-    <Compile Include="XNA\PageManager\PageBase.cs" />
-    <Compile Include="XNA\PageManager\PageManager.ContentLoading.cs" />
-    <Compile Include="XNA\PageManager\PageManager.cs" />
-    <Compile Include="XNA\PageManager\PageManager.IDrawable.cs" />
-    <Compile Include="XNA\PageManager\PageManager.IPage.cs" />
-    <Compile Include="XNA\PageManager\ScreenInfo.cs" />
-    <Compile Include="XNA\PageManager\ScreenInfo.W10.cs" />
-    <Compile Include="XNA\PageManager\TransitionController.cs" />
-    <Compile Include="XNA\Performance\BarAlign.cs" />
-    <Compile Include="XNA\Performance\Counter.cs" />
-    <Compile Include="XNA\Performance\CounterMarker.cs" />
-    <Compile Include="XNA\Performance\FrameRateCounter.cs" />
-    <Compile Include="XNA\Performance\MySet.cs" />
-    <Compile Include="XNA\Performance\Performance.cs" />
-    <Compile Include="XNA\Performance\PerformanceDisplay.cs" />
-    <Compile Include="XNA\ScreenRotation\IRotationStrategy.cs" />
-    <Compile Include="XNA\ScreenRotation\RotationAngle.cs" />
-    <Compile Include="XNA\Tweens\Scheduler.cs" />
-    <Compile Include="XNA\Tweens\Timer.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPosition.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionColorDualTexture.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormal.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalColor.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalColorTexture.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalColorTextureTangentBinormal.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureTangentBinormal.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureWeightsIndices.cs" />
-    <Compile Include="XNA\VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPosition.cs" />
+    <Compile Include="VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColor.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndices.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">

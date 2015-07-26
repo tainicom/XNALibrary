@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
@@ -46,11 +47,19 @@
     <Compile Include="DataStructures\Graphs\Node.cs" />
     <Compile Include="DataStructures\Graphs\NodeList.cs" />
     <Compile Include="Devices\Vibrator.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
     <Compile Include="Storage\StorageFile.cs" />
+    <Compile Include="VertexTypes\VertexPosition.cs" />
+    <Compile Include="VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColor.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTexture.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalColorTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureTangentBinormal.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndices.cs" />
+    <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.4.0.459, Culture=neutral, processorArchitecture=MSIL">
