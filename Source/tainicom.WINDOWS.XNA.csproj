@@ -59,6 +59,7 @@
     <XnaCompressContent>false</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
@@ -68,13 +69,19 @@
     <Compile Include="DataStructures\Graphs\Node.cs" />
     <Compile Include="DataStructures\Graphs\NodeList.cs" />
     <Compile Include="Devices\Vibrator.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
+    <Compile Include="Helpers\MarketplaceHelper.cs" />
+    <Compile Include="Helpers\NKStringBuilder.cs" />
+    <Compile Include="Maths\MathHelper2D.cs" />
+    <Compile Include="Maths\Phasor.cs" />
+    <Compile Include="Maths\Tau.cs" />
     <Compile Include="Storage\StorageFile.cs" />
     <Compile Include="VertexTypes\VertexPosition.cs" />
     <Compile Include="VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="Tweens\Scheduler.cs" />
+    <Compile Include="Tweens\Timer.cs" />
     <Compile Include="VertexTypes\VertexPositionNormal.cs" />
     <Compile Include="VertexTypes\VertexPositionNormalColor.cs" />
     <Compile Include="VertexTypes\VertexPositionNormalColorTexture.cs" />

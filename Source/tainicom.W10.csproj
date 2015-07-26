@@ -50,9 +50,16 @@
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
+    <Compile Include="Helpers\MarketplaceHelper.cs" />
+    <Compile Include="Helpers\NKStringBuilder.cs" />
+    <Compile Include="Maths\MathHelper2D.cs" />
+    <Compile Include="Maths\Phasor.cs" />
+    <Compile Include="Maths\Tau.cs" />
     <Compile Include="Storage\StorageFile.cs" />
     <Compile Include="VertexTypes\VertexPosition.cs" />
     <Compile Include="VertexTypes\VertexPositionColorDualTexture.cs" />
+    <Compile Include="Tweens\Scheduler.cs" />
+    <Compile Include="Tweens\Timer.cs" />
     <Compile Include="VertexTypes\VertexPositionNormal.cs" />
     <Compile Include="VertexTypes\VertexPositionNormalColor.cs" />
     <Compile Include="VertexTypes\VertexPositionNormalColorTexture.cs" />
