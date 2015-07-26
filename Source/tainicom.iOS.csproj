@@ -56,6 +56,7 @@
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
     <Compile Include="Storage\StorageBinaryFile.cs" />
+    <Compile Include="Helpers\CommonHelper.cs" />
     <Compile Include="Helpers\MarketplaceHelper.cs" />
     <Compile Include="Helpers\NKStringBuilder.cs" />
     <Compile Include="Maths\MathHelper2D.cs" />
