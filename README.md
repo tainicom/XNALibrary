@@ -36,6 +36,36 @@ Graph library.
  * tainicom.DataStructures.Graphs.Algorithms.SortestPath<TNode>
 
 
+## \Devices\
+
+* tainicom.Devices.Vibrator
+
+Vibrator class for mobile devices that use duty cicle to control power.
+Support Dumping & MasterPower.
+
+
+## \Helpers\
+
+* tainicom.Helpers.MarketplaceHelper
+
+Abstruct class to handle Marketplace. Support Emulation/Testing.
+
+* tainicom.Helpers.NKStringBuilder
+
+Garbage-free StringBuilder.
+
+
+## \Maths\
+
+* tainicom.tainicom.Maths.Phasor
+
+Return values of a Phasor.
+
+* tainicom.tainicom.Maths.Tau
+
+Define Tau constant.
+
+
 ## \Storage\
 
  * tainicom.Storage.StorageFile 
@@ -46,12 +76,10 @@ Wrapper of IsolatedStorageFile.
 Wrapper of IsolatedStorageFile for binary files & Version support.
 
 
-## \Devices\
+## \Tweens\
 
-* tainicom.Devices.Vibrator
+Classes to handle animation.
 
-Vibrator class for mobile devices that use duty cicle to control power.
-Support Dumping & MasterPower.
 
 ## \VertexTypes\
 
