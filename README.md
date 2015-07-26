@@ -71,6 +71,7 @@ Define Tau constant.
  * tainicom.Storage.StorageFile 
 
 Wrapper of IsolatedStorageFile.
+
  * tainicom.Storage.StorageBinaryFile
 
 Wrapper of IsolatedStorageFile for binary files & Version support.
@@ -79,6 +80,14 @@ Wrapper of IsolatedStorageFile for binary files & Version support.
 ## \Tweens\
 
 Classes to handle animation.
+
+ * tainicom.Tweens.Timer 
+
+A clock that can be turn on/off and reset.
+
+ * tainicom.Tweens.Scheduler
+
+An event sequence. Extends Timer.
 
 
 ## \VertexTypes\
