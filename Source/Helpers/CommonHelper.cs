@@ -15,6 +15,7 @@
 #endregion
 
 using System;
+using System.Text;
 
 namespace tainicom.Helpers
 {
