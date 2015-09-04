@@ -60,6 +60,8 @@ namespace tainicom.Helpers
         {
             this.Angle = orientation;
             DisplayOrientation displayOrientation = GetDisplayOrientation(Angle);
+
+            if (displayOrientation == DisplayOrientation.Unknown) return;
             if (_currentDisplayOrientation == displayOrientation) return;
 
             _currentDisplayOrientation = displayOrientation;
@@ -68,6 +70,8 @@ namespace tainicom.Helpers
 
         internal static DisplayOrientation GetDisplayOrientation(int angle)
         {
+            if (angle == -1) return DisplayOrientation.Unknown;
+            
             if (45 <= angle && angle < 90 + 45)
                 return DisplayOrientation.LandscapeLeft;
             else if (180 + 45 <= angle && angle < 180 + 45 + 90)
