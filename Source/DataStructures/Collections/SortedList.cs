@@ -124,7 +124,7 @@ namespace System.Collections.Generic
             Capacity = capacity;
         }
         
-        #if !WINDOWS_APP
+        #if !WINDOWS_APP && !WINDOWS_PHONE_APP
         // Constructs a new sorted list containing a copy of the entries in the
         // given dictionary. The elements of the sorted list are ordered according
         // to the IComparable interface, which must be implemented by the
@@ -137,7 +137,7 @@ namespace System.Collections.Generic
         }
         #endif
 
-        #if !WINDOWS_APP
+        #if !WINDOWS_APP && !WINDOWS_PHONE_APP
         // Constructs a new sorted list containing a copy of the entries in the
         // given dictionary. The elements of the sorted list are ordered according
         // to the given IComparer implementation. If comparer is
