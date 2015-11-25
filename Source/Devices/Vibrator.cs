@@ -83,7 +83,7 @@ namespace tainicom.Devices
 
             #if WP7 || WP8
             Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutycycle));
-            #elif WINDOWS_PHONE_APP
+            #elif WP8_1
             Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutycycle));
             #elif ANDROID           
             var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
