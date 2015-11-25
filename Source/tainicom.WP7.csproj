@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\Phone\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PHONE;WP7</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;WP7</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -34,7 +34,7 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\Phone\</OutputPath>
-    <DefineConstants>TRACE;PHONE;WP7</DefineConstants>
+    <DefineConstants>TRACE;WP7</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>

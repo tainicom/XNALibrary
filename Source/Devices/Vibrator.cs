@@ -21,7 +21,7 @@ namespace tainicom.Devices
 {
     public class Vibrator:IUpdateable
     {
-        bool _enabled;
+        bool _enabled;   
         float _power;
         float _dumping;
         float _masterPower;
@@ -81,7 +81,7 @@ namespace tainicom.Devices
             double dutycycle = elapsedTime * _power * _masterPower;
             //dutycycle = Math.Min(dutycycle,elapsedTime);
 
-            #if PHONE
+            #if WP7 || WP8
             Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutycycle));
             #elif WINDOWS_PHONE_APP
             Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutycycle));

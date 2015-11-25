@@ -38,7 +38,7 @@ namespace tainicom.Helpers
 #if DEBUG
         public static void Trace(string message)
         {
-            #if (NETFX_CORE || PHONE)
+            #if (WP7 || WP8 || NETFX_CORE)
                 System.Diagnostics.Debug.WriteLine(message);
             #elif WINDOWS
                 System.Diagnostics.Trace.WriteLine(message);
@@ -69,7 +69,7 @@ namespace tainicom.Helpers
 #endif
         public static void ShowDialog(string message)
         {
-            #if PHONE
+            #if WP7 || WP8
             System.Windows.MessageBox.Show(message);
             #elif NETFX_CORE
         
