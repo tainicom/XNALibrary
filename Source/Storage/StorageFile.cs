@@ -16,7 +16,7 @@
 
 using System;
 using System.IO;
-#if NETFX_CORE
+#if WP8_1 || W8_1 || W10
 using Windows.Storage;
 #else
 using System.IO.IsolatedStorage;
@@ -26,7 +26,7 @@ namespace tainicom.Storage
 {
     public class StorageFile : IDisposable
     {
-#if NETFX_CORE
+#if WP8_1 || W8_1 || W10
         StorageFolder storage;
         Stream stream;
 #else
@@ -48,7 +48,7 @@ namespace tainicom.Storage
             Dispose(false);
         }
 
-#if NETFX_CORE
+#if WP8_1 || W8_1 || W10
         private static StorageFolder GetUserStore()
         {
             return ApplicationData.Current.LocalFolder;
@@ -65,7 +65,7 @@ namespace tainicom.Storage
         }
 #endif
 
-        #if (!NETFX_CORE)
+        #if (!WP8_1 && !W8_1 && !W10)
         static public StorageFile OpenFile(string filename)
         {   
             IsolatedStorageFile storage = GetUserStore();
@@ -102,7 +102,7 @@ namespace tainicom.Storage
         }
         #endif
         
-        #if (!NETFX_CORE)
+        #if (!WP8_1 && !W8_1 && !W10)
         static public StorageFile CreateFile(string filename)
         {
             IsolatedStorageFile storage = GetUserStore();
@@ -132,7 +132,7 @@ namespace tainicom.Storage
         }
         #endif
         
-        #if (!NETFX_CORE)
+        #if (!WP8_1 && !W8_1 && !W10)
         public static void DeleteFile(string filename)
         {
             IsolatedStorageFile storage = GetUserStore(); 
@@ -165,7 +165,7 @@ namespace tainicom.Storage
         {
             if (disposed) return;
             
-            #if (!NETFX_CORE)
+            #if (!WP8_1 && !W8_1 && !W10)
             if (stream != null) stream.Close();
             #endif
             #if (WINDOWS)
@@ -175,7 +175,7 @@ namespace tainicom.Storage
             if (disposing)
             {               
                 if (stream != null) stream.Dispose();
-                #if (!NETFX_CORE)
+                #if (!WP8_1 && !W8_1 && !W10)
                 if (storage != null) storage.Dispose();
                 #endif
             }

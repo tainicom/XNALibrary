@@ -61,7 +61,7 @@ namespace tainicom.Helpers
 #if !WP8
         static Threading()
         {
-#if NETFX_CORE
+#if WP8_1 || W8_1 || W10
             mainThreadId = Environment.CurrentManagedThreadId;
 #else
             mainThreadId = Thread.CurrentThread.ManagedThreadId;
@@ -77,7 +77,7 @@ namespace tainicom.Helpers
         {
 #if WP8
             return Deployment.Current.Dispatcher.CheckAccess();
-#elif NETFX_CORE
+#elif WP8_1 || W8_1 || W10
             return (mainThreadId == Environment.CurrentManagedThreadId);
 #else
             return mainThreadId == Thread.CurrentThread.ManagedThreadId;
@@ -92,7 +92,7 @@ namespace tainicom.Helpers
         {
 #if WP8
             if (!Deployment.Current.Dispatcher.CheckAccess())
-#elif NETFX_CORE
+#elif WP8_1 || W8_1 || W10
             if (mainThreadId != Environment.CurrentManagedThreadId)
 #else
             if (mainThreadId != Thread.CurrentThread.ManagedThreadId)
@@ -140,7 +140,7 @@ namespace tainicom.Helpers
             if (action == null)
                 throw new ArgumentNullException("action");
 
-#if (NETFX_CORE) || PSM
+#if (WP8_1 || W8_1 || W10) || PSM
             action();
 #else
             // If we are already on the UI thread, just call the action and be done with it
@@ -174,7 +174,7 @@ namespace tainicom.Helpers
                 GL.Flush();
                 GraphicsExtensions.CheckGLError();
             }
-#elif NETFX_CORE || LINUX || ANGLE
+#elif WP8_1 || W8_1 || W10 || LINUX || ANGLE
             lock (BackgroundContext)
             {
                 // Make the context current on this thread

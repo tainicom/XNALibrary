@@ -53,9 +53,9 @@ namespace tainicom.Helpers
             _isTrial = false;
             #if WP7 || WP8
             _isTrial = (new Microsoft.Phone.Marketplace.LicenseInformation()).IsTrial();
-            #elif W10
+            #elif W10 //TODO: get trial info for W10
             _isTrial = true;
-            #elif NETFX_CORE
+            #elif WP8_1 || W8_1 || W10
             _isTrial = Windows.ApplicationModel.Store.CurrentApp.LicenseInformation.IsTrial;
             #endif
         }
