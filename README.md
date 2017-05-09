@@ -38,6 +38,12 @@ Graph library.
 
 ## \Devices\
 
+* tainicom.Devices.InputState
+
+Handle Input in one place. Keyboard, Mouse, Touch, GamePad. 
+Keeps previous state and adds helper Methods like IsButtonPressed(), IsKeyReleased(), etc.
+Emulate Touch & Gestures with Mouse.
+
 * tainicom.Devices.Vibrator
 
 Vibrator class for mobile devices that use duty cicle to control power.
