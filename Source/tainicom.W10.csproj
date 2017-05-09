@@ -113,6 +113,7 @@
     <Compile Include="DataStructures\Graphs\Graph.cs" />
     <Compile Include="DataStructures\Graphs\Node.cs" />
     <Compile Include="DataStructures\Graphs\NodeList.cs" />
+    <Compile Include="Devices\InputState.cs" />
     <Compile Include="Devices\Vibrator.cs" />
     <Compile Include="Storage\IStoreable.cs" />
     <Compile Include="Storage\ITombstoning.cs" />
