@@ -102,5 +102,20 @@ namespace tainicom.Devices
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
         #endregion
+
+        public static void Vibrate(TimeSpan span)
+        {            
+            #if WP7 || WP8
+            Microsoft.Devices.VibrateController.Default.Start(span);
+            #elif WP8_1
+            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(span);
+            #elif ANDROID           
+            var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
+            if (vibrator.HasVibrator)
+            {
+                vibrator.Vibrate((long)span.TotalMilliseconds);
+            }
+            #endif
+        }
     }
 }
