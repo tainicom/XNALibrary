@@ -26,6 +26,7 @@ namespace tainicom.Devices
         float _power;
         float _dumping;
         float _masterPower;
+        float _startingThreashold;
 
         public float Dumping
         {
@@ -36,6 +37,17 @@ namespace tainicom.Devices
         {
             get { return _masterPower; }
             set { _masterPower = value; }
+        }
+
+        /// <summary>
+        /// Usually a motor won't start for PWM signals below ~20%.
+        /// The final output is mapped to the range [0 - 1] --> [StartingThreashold - 1]
+        /// A typical value for StartingThreashold is between 0.10f and 0.25f.
+        /// </summary>
+        public float StartingThreashold
+        {
+            get { return _startingThreashold; }
+            set { _startingThreashold = value; }
         }
 
         private static Vibrator _instance;
@@ -53,8 +65,9 @@ namespace tainicom.Devices
             _enabled = true;
             _updateOrder = int.MaxValue;
             _power = 0;
-            _dumping = 1;
+            _dumping = 1.0f;
             _masterPower = 1;
+            _startingThreashold = 0.0f;
         }
 
         public void Vibe(float power)
@@ -95,25 +108,35 @@ namespace tainicom.Devices
         
         public void Update(GameTime gameTime)
         {
-            if (_power < 0.02)
+            if (_power < 0.02f)
             {
                 _power = 0;
                 return;
             }
 
+            float power = _power * _masterPower;
+            if (power < 0.02f) 
+                return;
+
+            // map power value [0 - 1] -> [minPower - 1]
+            power = _startingThreashold + power * (1f-_startingThreashold);
+
             double elapsedTime = gameTime.ElapsedGameTime.TotalSeconds;
-            double dutycycle = elapsedTime * _power * _masterPower;
-            //dutycycle = Math.Min(dutycycle,elapsedTime);
+            double dutyCycle = power * elapsedTime;
+            
+            // limit power to 100% PWM.
+            dutyCycle = Math.Min(dutyCycle,elapsedTime);
+
 
             #if WP7 || WP8
-            Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutycycle));
+            Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutyCycle));
             #elif WP8_1
-            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutycycle));
+            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutyCycle));
             #elif ANDROID           
             var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
             if(vibrator.HasVibrator)
             { 
-                long ms = (long)(dutycycle*1000);
+                long ms = (long)(dutyCycle*1000);
                 vibrator.Vibrate(ms);
             }
             #endif
@@ -149,17 +172,17 @@ namespace tainicom.Devices
         }
         #endregion
 
-        public static void Vibrate(TimeSpan span)
+        public static void Vibrate(TimeSpan duration)
         {            
             #if WP7 || WP8
-            Microsoft.Devices.VibrateController.Default.Start(span);
+            Microsoft.Devices.VibrateController.Default.Start(duration);
             #elif WP8_1
-            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(span);
+            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(duration);
             #elif ANDROID           
             var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
             if (vibrator.HasVibrator)
             {
-                vibrator.Vibrate((long)span.TotalMilliseconds);
+                vibrator.Vibrate((long)duration.TotalMilliseconds);
             }
             #endif
         }
