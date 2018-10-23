@@ -21,12 +21,17 @@ namespace tainicom.Devices
 {
     public class Vibrator: IGameComponent, IUpdateable
     {
-        bool _enabled;   
+        bool _enabled;
         int  _updateOrder;
         float _power;
         float _dumping;
         float _masterPower;
         float _startingThreashold;
+
+        // native device
+#if ANDROID
+        Android.OS.Vibrator _vibrator;
+#endif
 
         public float Dumping
         {
@@ -68,8 +73,13 @@ namespace tainicom.Devices
             _dumping = 1.0f;
             _masterPower = 1;
             _startingThreashold = 0.0f;
-        }
 
+            // init device
+            #if ANDROID
+            _vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
+            #endif
+        }
+        
         public void Vibe(float power)
         {
             _power = MathHelper.Max(_power, power);
@@ -113,7 +123,7 @@ namespace tainicom.Devices
                 _power = 0;
                 return;
             }
-
+            
             float power = _power * _masterPower;
             if (power < 0.02f) 
                 return;
@@ -132,19 +142,23 @@ namespace tainicom.Devices
             Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutyCycle));
             #elif WP8_1
             Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutyCycle));
-            #elif ANDROID           
-            var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
-            if(vibrator.HasVibrator)
-            { 
-                long ms = (long)(dutyCycle*1000);
-                vibrator.Vibrate(ms);
+            #elif ANDROID
+            try
+            {
+                if(_vibrator.HasVibrator)
+                {
+                    long ms = (long)(dutyCycle*1000);
+                    _vibrator.Vibrate(ms);
+                }
             }
+            catch { /* ignore */ }
             #endif
             
+            // dump power
             _power *= (1.0f - _dumping);
             return;
         }
-
+        
         private EventHandler<EventArgs> enabledChangedEvent;
         private EventHandler<EventArgs> updateOrderChangedEvent;
 
@@ -172,18 +186,23 @@ namespace tainicom.Devices
         }
         #endregion
 
+
         public static void Vibrate(TimeSpan duration)
-        {            
+        {
             #if WP7 || WP8
             Microsoft.Devices.VibrateController.Default.Start(duration);
             #elif WP8_1
             Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(duration);
-            #elif ANDROID           
-            var vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
-            if (vibrator.HasVibrator)
+            #elif ANDROID
+            try
             {
-                vibrator.Vibrate((long)duration.TotalMilliseconds);
+                var _vibrator = Vibrator.Current._vibrator;
+                if (_vibrator.HasVibrator)
+                {
+                    _vibrator.Vibrate((long)duration.TotalMilliseconds);
+                }
             }
+            catch { /* ignore */ }
             #endif
         }
     }
