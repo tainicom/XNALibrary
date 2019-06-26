@@ -31,6 +31,7 @@ namespace tainicom.Devices
         // native device
 #if ANDROID
         Android.OS.Vibrator _vibrator;
+        private bool _hasVibrator = true;
 #endif
 
         public float Dumping
@@ -77,6 +78,11 @@ namespace tainicom.Devices
             // init device
             #if ANDROID
             _vibrator = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
+            try
+            {
+                _hasVibrator = _vibrator.HasVibrator;
+            }
+            catch { /* ignore */ }
             #endif
         }
         
@@ -145,7 +151,7 @@ namespace tainicom.Devices
             #elif ANDROID
             try
             {
-                if(_vibrator.HasVibrator)
+                if(_hasVibrator)
                 {
                     long ms = (long)(dutyCycle*1000);
                     _vibrator.Vibrate(ms);
@@ -196,10 +202,10 @@ namespace tainicom.Devices
             #elif ANDROID
             try
             {
-                var _vibrator = Vibrator.Current._vibrator;
-                if (_vibrator.HasVibrator)
+                var vibrator = Vibrator.Current;
+                if (vibrator._hasVibrator)
                 {
-                    _vibrator.Vibrate((long)duration.TotalMilliseconds);
+                    vibrator._vibrator.Vibrate((long)duration.TotalMilliseconds);
                 }
             }
             catch { /* ignore */ }
