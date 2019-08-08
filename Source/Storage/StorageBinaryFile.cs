@@ -106,19 +106,19 @@ namespace tainicom.Storage
             if (storage == null) return null;
             StorageBinaryFile instance = null;
 
-			try
-			{
-            	instance = new StorageBinaryFile();
-            	instance.storage = storage;
+            try
+            {
+                instance = new StorageBinaryFile();
+                instance.storage = storage;
                 string fullPath = Path.Combine(storage, filename);
                 if (!File.Exists(fullPath)) return null;
                 Stream stream = File.Open(fullPath, FileMode.Open, System.IO.FileAccess.ReadWrite);
-            	instance.stream = stream;
-            	instance.inStream = new BinaryReader(instance.stream);
-            	instance.version = instance.inStream.ReadInt32();
-			}
-			catch (FileNotFoundException fnfe) { return null;}
-			catch (AggregateException ae) {return null;}
+                instance.stream = stream;
+                instance.inStream = new BinaryReader(instance.stream);
+                instance.version = instance.inStream.ReadInt32();
+            }
+            catch (FileNotFoundException fnfe) { return null;}
+            catch (AggregateException ae) {return null;}
 
             return instance;
         }
