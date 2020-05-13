@@ -38,8 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.W10.cs" />
-    <Content Include="Properties\tainicom.rd.xml" />
     <Compile Include="DataStructures\Collections\DictionaryList.cs" />
     <Compile Include="DataStructures\Collections\PriorityQueue.cs" />
     <Compile Include="DataStructures\Collections\Set.cs" />
@@ -72,10 +70,13 @@
     <Compile Include="VertexTypes\VertexPositionNormalTextureWeightsIndicesTangentBinormal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\Game\packages\MonoGame.Framework.Portable.3.2.99.1-Beta\lib\portable-net40+sl40+win+wp80\MonoGame.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <Compile Include="Properties\AssemblyInfo.W10.cs" />
+    <Content Include="Properties\tainicom.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Portable" Version="3.2.99.1-Beta">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
