@@ -144,10 +144,8 @@ namespace tainicom.Devices
             dutyCycle = Math.Min(dutyCycle,elapsedTime);
 
 
-            #if WP7 || WP8
+            #if WP7
             Microsoft.Devices.VibrateController.Default.Start(TimeSpan.FromSeconds(dutyCycle));
-            #elif WP8_1
-            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(TimeSpan.FromSeconds(dutyCycle));
             #elif ANDROID
             try
             {
@@ -195,10 +193,8 @@ namespace tainicom.Devices
 
         public static void Vibrate(TimeSpan duration)
         {
-            #if WP7 || WP8
+            #if WP7
             Microsoft.Devices.VibrateController.Default.Start(duration);
-            #elif WP8_1
-            Windows.Phone.Devices.Notification.VibrationDevice.GetDefault().Vibrate(duration);
             #elif ANDROID
             try
             {

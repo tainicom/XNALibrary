@@ -16,7 +16,7 @@
 
 using System;
 using System.IO;
-#if WP8_1 || W8_1 || W10
+#if W10
 using Windows.Storage;
 #elif ANDROID
 
@@ -28,7 +28,7 @@ namespace tainicom.Storage
 {
     public class StorageBinaryFile : IDisposable
     {
-#if WP8_1 || W8_1 || W10
+#if W10
         StorageFolder storage;
         Stream stream;
 #elif ANDROID
@@ -54,7 +54,7 @@ namespace tainicom.Storage
             Dispose(false);
         }
 
-#if WP8_1 || W8_1 || W10
+#if W10
         private static StorageFolder GetUserStore()
         {
             return ApplicationData.Current.LocalFolder;
@@ -77,7 +77,7 @@ namespace tainicom.Storage
 #endif
 
 
-#if WP8_1 || W8_1 || W10
+#if W10
         static public StorageBinaryFile OpenFile(string filename)
         {
             StorageFolder storage = GetUserStore();
@@ -141,7 +141,7 @@ namespace tainicom.Storage
         }
 #endif
 
-#if WP8_1 || W8_1 || W10
+#if W10
         static public StorageBinaryFile CreateFile(string filename, int version)
         {
             StorageFolder storage = GetUserStore();
@@ -196,7 +196,7 @@ namespace tainicom.Storage
 #endif
         
         
-#if WP8_1 || W8_1 || W10
+#if W10
 
         public static void DeleteFile(string filename)
         {
@@ -239,7 +239,7 @@ namespace tainicom.Storage
         {
             if (disposed) return;
             
-            #if WP8_1 || W8_1 || W10
+            #if W10
             #elif WINDOWS
             if (storage != null) storage.Close();
             #elif ANDROID
@@ -255,7 +255,7 @@ namespace tainicom.Storage
                 if (outStream != null) outStream.Dispose();
                 if (inStream != null) inStream.Dispose();
                 if (stream != null) stream.Dispose();
-                #if WP8_1 || W8_1 || W10                
+                #if W10                
                 #elif ANDROID
         
                 #else 

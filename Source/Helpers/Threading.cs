@@ -33,20 +33,13 @@ using OpenTK.Platform;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 #endif
-#if WP8
-using System.Windows;
-#endif
 
 namespace tainicom.Helpers
 {
 
     public class Threading
     {
-        public const int kMaxWaitForUIThread = 750; // In milliseconds
-
-#if !WP8
         static int mainThreadId;
-#endif
 
 #if ANDROID
         static List<Action> actions = new List<Action>();
@@ -58,16 +51,14 @@ namespace tainicom.Helpers
         public static IWindowInfo WindowInfo;
 #endif
 
-#if !WP8
         static Threading()
         {
-#if WP8_1 || W8_1 || W10
+#if W10
             mainThreadId = Environment.CurrentManagedThreadId;
 #else
             mainThreadId = Thread.CurrentThread.ManagedThreadId;
 #endif
         }
-#endif
 
         /// <summary>
         /// Checks if the code is currently running on the UI thread.
@@ -75,9 +66,7 @@ namespace tainicom.Helpers
         /// <returns>true if the code is currently running on the UI thread.</returns>
         public static bool IsOnUIThread()
         {
-#if WP8
-            return Deployment.Current.Dispatcher.CheckAccess();
-#elif WP8_1 || W8_1 || W10
+#if W10
             return (mainThreadId == Environment.CurrentManagedThreadId);
 #else
             return mainThreadId == Thread.CurrentThread.ManagedThreadId;
@@ -90,45 +79,13 @@ namespace tainicom.Helpers
         /// <exception cref="InvalidOperationException">Thrown if the code is not currently running on the UI thread.</exception>
         public static void EnsureUIThread()
         {
-#if WP8
-            if (!Deployment.Current.Dispatcher.CheckAccess())
-#elif WP8_1 || W8_1 || W10
+#if W10
             if (mainThreadId != Environment.CurrentManagedThreadId)
 #else
             if (mainThreadId != Thread.CurrentThread.ManagedThreadId)
 #endif
                 throw new InvalidOperationException("Operation not called on UI thread.");
         }
-
-#if WP8
-        internal static void RunOnUIThread(Action action)
-        {
-            RunOnContainerThread(Deployment.Current.Dispatcher, action);
-        }
-        
-        internal static void RunOnContainerThread(System.Windows.Threading.Dispatcher target, Action action)
-        {
-            target.BeginInvoke(action);
-        }
-
-        internal static void BlockOnContainerThread(System.Windows.Threading.Dispatcher target, Action action)
-        {
-            if (target.CheckAccess())
-            {
-                action();
-            }
-            else
-            {
-                EventWaitHandle wait = new AutoResetEvent(false);
-                target.BeginInvoke(() =>
-                {
-                    action();
-                    wait.Set();
-                });
-                wait.WaitOne(kMaxWaitForUIThread);
-            }
-        }
-#endif
 
         /// <summary>
         /// Runs the given action on the UI thread and blocks the current thread while the action is running.
@@ -140,7 +97,7 @@ namespace tainicom.Helpers
             if (action == null)
                 throw new ArgumentNullException("action");
 
-#if (WP8_1 || W8_1 || W10) || PSM
+#if (W10) || PSM
             action();
 #else
             // If we are already on the UI thread, just call the action and be done with it
@@ -153,11 +110,7 @@ namespace tainicom.Helpers
                 catch (UnauthorizedAccessException ex)
                 {
                     // Need to be on a different thread
-#if WP8
-                    BlockOnContainerThread(Deployment.Current.Dispatcher, action);
-#else
                     throw (ex);
-#endif
                 }
                 return;
             }
@@ -174,7 +127,7 @@ namespace tainicom.Helpers
                 GL.Flush();
                 GraphicsExtensions.CheckGLError();
             }
-#elif WP8_1 || W8_1 || W10 || LINUX || ANGLE
+#elif W10 || LINUX || ANGLE
             lock (BackgroundContext)
             {
                 // Make the context current on this thread
@@ -187,8 +140,6 @@ namespace tainicom.Helpers
                 // Must make the context not current on this thread or the next thread will get error 170 from the MakeCurrent call
                 BackgroundContext.MakeCurrent(null);
             }
-#elif WP8
-            BlockOnContainerThread(Deployment.Current.Dispatcher, action);
 #else
             ManualResetEventSlim resetEvent = new ManualResetEventSlim(false);
 #if MONOMAC

@@ -38,7 +38,7 @@ namespace tainicom.Helpers
 #if DEBUG
         public static void Trace(string message)
         {
-            #if (WP7 || WP8 || WP8_1 || W8_1 || W10)
+            #if (WP7 || W10)
                 System.Diagnostics.Debug.WriteLine(message);
             #elif WINDOWS
                 System.Diagnostics.Trace.WriteLine(message);
@@ -69,9 +69,9 @@ namespace tainicom.Helpers
 #endif
         public static void ShowDialog(string message)
         {
-            #if WP7 || WP8
+            #if WP7
             System.Windows.MessageBox.Show(message);
-            #elif WP8_1 || W8_1 || W10
+            #elif W10
         
             #endif
         }

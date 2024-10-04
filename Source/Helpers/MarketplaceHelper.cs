@@ -51,11 +51,11 @@ namespace tainicom.Helpers
         public void UpdateIsTrial()
         {
             _isTrial = false;
-            #if WP7 || WP8
+            #if WP7
             _isTrial = (new Microsoft.Phone.Marketplace.LicenseInformation()).IsTrial();
             #elif W10 //TODO: get trial info for W10
             _isTrial = true;
-            #elif WP8_1 || W8_1 || W10
+            #elif W10
             _isTrial = Windows.ApplicationModel.Store.CurrentApp.LicenseInformation.IsTrial;
             #endif
         }
@@ -63,7 +63,7 @@ namespace tainicom.Helpers
         public void UpdateIsSigned()
         {
             IsSigned = true;
-            #if WP7 || WP8
+            #if WP7
             //try
             //{ 
             //IsSigned = System.IO.IsolatedStorage.IsolatedStorageFile.GetUserStoreForApplication().FileExists("WMAppPRHeader.xml");            
